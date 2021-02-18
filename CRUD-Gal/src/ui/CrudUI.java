@@ -198,4 +198,29 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
     private javax.swing.JTextField jTextFieldCodice;
     private javax.swing.JTextField jTextFieldDescrizione;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void entraStatoRicerca() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void entraStatoRimuovi() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void entraStatoModifica() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void entraStatoVisualizza() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void entraStatoAggiungi() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

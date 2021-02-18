@@ -30,7 +30,9 @@ public class CrudAutoma implements State {
 
         @Override
         public void next(Event e) {
-
+              if (e instanceof Ricerca){
+                  stato = new Ricerca();
+                      }
         }
 
     }

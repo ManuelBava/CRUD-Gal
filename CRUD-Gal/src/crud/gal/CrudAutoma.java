@@ -27,10 +27,10 @@ public class CrudAutoma implements State {
         System.out.println("Siamo arrivati nello stato " + stato + "\n");
     }
 
-
     public class Initial implements State {
 
         public Initial() {
+            ui.statoIniziale();
         }
 
         @Override
@@ -62,6 +62,7 @@ public class CrudAutoma implements State {
     private class Aggiungi implements State {
 
         public Aggiungi() {
+            ui.entraStatoAggiungi();
         }
 
         @Override
@@ -82,6 +83,7 @@ public class CrudAutoma implements State {
     private class Visualizza implements State {
 
         public Visualizza() {
+            ui.entraStatoVisualizza();
         }
 
         @Override
@@ -103,6 +105,7 @@ public class CrudAutoma implements State {
     private class Modifica implements State {
 
         public Modifica() {
+            ui.entraStatoModifica();
         }
 
         @Override
@@ -119,6 +122,7 @@ public class CrudAutoma implements State {
     private class Rimuovi implements State {
 
         public Rimuovi() {
+            ui.entraStatoRimuovi();
         }
 
         @Override

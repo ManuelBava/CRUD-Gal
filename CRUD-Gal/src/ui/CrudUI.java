@@ -85,34 +85,30 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jTextFieldDescrizione, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonModifica)
-                            .addComponent(jTextFieldCercaPerCodice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonConferma)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonAnnulla))
-                            .addComponent(jButtonCerca))))
+                    .addComponent(jButtonModifica)
+                    .addComponent(jTextFieldCercaPerCodice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonNuova)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonRimuovi)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jButtonConferma)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonAnnulla))
+                    .addComponent(jButtonCerca))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonRimuovi)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(jTextFieldDescrizione, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonNuova)
+                .addGap(62, 62, 62))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -204,21 +200,25 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
 
     @Override
     public void statoIniziale() {
-        jButtonNuova.setEnabled(true);
-        jButtonCerca.setEnabled(true);
-        jTextFieldCercaPerCodice.setEnabled(true);
-        jButtonAnnulla.setEnabled(false);
-        jButtonConferma.setEnabled(false);
-        jButtonModifica.setEnabled(false);
-        jTable1.setEnabled(false);
-        jTextFieldDescrizione.setEnabled(false);
-        
-        
+        jButtonNuova.setVisible(true);
+        jButtonCerca.setVisible(true);
+        jTextFieldCercaPerCodice.setVisible(true);
+        jButtonAnnulla.setVisible(false);
+        jButtonConferma.setVisible(false);
+        jButtonModifica.setVisible(false);
+        jTable1.setVisible(false);
+        jTextFieldDescrizione.setVisible(false);
     }
 
     @Override
     public void entraStatoRicerca() {
-
+        jTable1.updateUI();
+        jTextFieldCercaPerCodice.setText("");
+        jTextFieldCercaPerCodice.setVisible(true);
+        jButtonAnnulla.setVisible(false);
+        jButtonConferma.setVisible(false);
+        jButtonModifica.setVisible(false);
+        jButtonNuova.setVisible(true);
     }
 
     @Override
@@ -238,6 +238,6 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
 
     @Override
     public void entraStatoAggiungi() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 }

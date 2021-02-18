@@ -16,12 +16,17 @@ public class CrudAutoma implements State {
 
     public CrudAutoma(Automabile ui) {
         this.ui = ui;
+        stato = new Initial();
     }
 
     @Override
     public void next(Event e) {
+        System.out.println("Siamo nello stato " + stato);
+        System.out.println("Ricevuto evento " + e);
         stato.next(e);
+        System.out.println("Siamo arrivati nello stato " + stato + "\n");
     }
+
 
     public class Initial implements State {
 
@@ -30,7 +35,9 @@ public class CrudAutoma implements State {
 
         @Override
         public void next(Event e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            if (e instanceof InitialEvent) {
+                stato = new Ricerca();
+            }
         }
     }
 
@@ -41,8 +48,12 @@ public class CrudAutoma implements State {
 
         @Override
         public void next(Event e) {
-            if (e instanceof Ricerca) {
+            if (e instanceof RicercaEvent) {
                 stato = new Ricerca();
+            } else if (e instanceof SelezionaEvent) {
+                stato = new Visualizza();
+            } else if (e instanceof AddEvent) {
+                stato = new Aggiungi();
             }
         }
 
@@ -55,7 +66,15 @@ public class CrudAutoma implements State {
 
         @Override
         public void next(Event e) {
-
+            if (e instanceof AnnullaEvent) {
+                stato = new Ricerca();
+            } else if (e instanceof ConfermaEvent) {
+                if (((ConfermaEvent) e).isStato_conferma() == false) {
+                    stato = new Aggiungi();
+                } else if (((ConfermaEvent) e).isStato_conferma() == true) {
+                    stato = new Visualizza();
+                }
+            }
         }
 
     }
@@ -67,9 +86,18 @@ public class CrudAutoma implements State {
 
         @Override
         public void next(Event e) {
-
+            if (e instanceof SelezionaEvent) {
+                stato = new Visualizza();
+            } else if (e instanceof AddEvent) {
+                stato = new Aggiungi();
+            } else if (e instanceof RimuoviEvent) {
+                stato = new Rimuovi();
+            } else if (e instanceof ModificaEvent) {
+                stato = new Modifica();
+            } else if (e instanceof RicercaEvent) {
+                stato = new Ricerca();
+            }
         }
-
     }
 
     private class Modifica implements State {
@@ -79,6 +107,11 @@ public class CrudAutoma implements State {
 
         @Override
         public void next(Event e) {
+            if (e instanceof AnnullaEvent) {
+                stato = new Visualizza();
+            } else if (e instanceof ConfermaEvent) {
+                stato = new Visualizza();
+            }
         }
 
     }
@@ -90,6 +123,9 @@ public class CrudAutoma implements State {
 
         @Override
         public void next(Event e) {
+            if (e instanceof ConfermaEvent) {
+                stato = new Ricerca();
+            }
 
         }
 

@@ -6,6 +6,7 @@
 package ui;
 
 import crud.gal.Automabile;
+import crud.gal.CrudAutoma;
 
 /**
  *
@@ -13,9 +14,11 @@ import crud.gal.Automabile;
  */
 public class CrudUI extends javax.swing.JFrame implements Automabile {
 
-   
+    CrudAutoma automa;
+
     public CrudUI() {
         initComponents();
+        automa = new CrudAutoma(this);
     }
 
     /**
@@ -200,8 +203,22 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
     // End of variables declaration//GEN-END:variables
 
     @Override
+    public void statoIniziale() {
+        jButtonNuova.setEnabled(true);
+        jButtonCerca.setEnabled(true);
+        jTextFieldCercaPerCodice.setEnabled(true);
+        jButtonAnnulla.setEnabled(false);
+        jButtonConferma.setEnabled(false);
+        jButtonModifica.setEnabled(false);
+        jTable1.setEnabled(false);
+        jTextFieldDescrizione.setEnabled(false);
+        
+        
+    }
+
+    @Override
     public void entraStatoRicerca() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override

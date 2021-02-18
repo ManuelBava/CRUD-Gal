@@ -23,6 +23,17 @@ public class CrudAutoma implements State {
         stato.next(e);
     }
 
+    public class Initial implements State {
+
+        public Initial() {
+        }
+
+        @Override
+        public void next(Event e) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    }
+
     public class Ricerca implements State {
 
         public Ricerca() {
@@ -30,9 +41,9 @@ public class CrudAutoma implements State {
 
         @Override
         public void next(Event e) {
-              if (e instanceof Ricerca){
-                  stato = new Ricerca();
-                      }
+            if (e instanceof Ricerca) {
+                stato = new Ricerca();
+            }
         }
 
     }

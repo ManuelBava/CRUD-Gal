@@ -5,8 +5,10 @@
  */
 package ui;
 
+import crud.gal.AddEvent;
 import crud.gal.Automabile;
 import crud.gal.CrudAutoma;
+import crud.gal.RicercaEvent;
 
 /**
  *
@@ -56,16 +58,31 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
         jButtonModifica.setText("Modifica");
 
         jButtonAnnulla.setText("Annulla");
+        jButtonAnnulla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnnullaActionPerformed(evt);
+            }
+        });
 
         jButtonRimuovi.setText("Rimuovi");
 
         jButtonNuova.setText("Nuova");
+        jButtonNuova.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNuovaActionPerformed(evt);
+            }
+        });
 
         jButtonConferma.setText("Conferma");
 
         jTextFieldCercaPerCodice.setText("Cerca per Codice");
 
         jButtonCerca.setText("Cerca");
+        jButtonCerca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCercaActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,6 +170,18 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCodiceActionPerformed
 
+    private void jButtonNuovaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuovaActionPerformed
+        automa.next(new AddEvent());
+    }//GEN-LAST:event_jButtonNuovaActionPerformed
+
+    private void jButtonCercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCercaActionPerformed
+        automa.next(new RicercaEvent());
+    }//GEN-LAST:event_jButtonCercaActionPerformed
+
+    private void jButtonAnnullaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnnullaActionPerformed
+        automa.next(new RicercaEvent());
+    }//GEN-LAST:event_jButtonAnnullaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -204,40 +233,84 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
 
     @Override
     public void statoIniziale() {
-        jButtonNuova.setEnabled(true);
-        jButtonCerca.setEnabled(true);
-        jTextFieldCercaPerCodice.setEnabled(true);
-        jButtonAnnulla.setEnabled(false);
-        jButtonConferma.setEnabled(false);
-        jButtonModifica.setEnabled(false);
-        jTable1.setEnabled(false);
-        jTextFieldDescrizione.setEnabled(false);
-        
-        
+        jTextFieldCodice.setVisible(false);
+        jButtonNuova.setVisible(true);
+        jButtonCerca.setVisible(true);
+        jTextFieldCercaPerCodice.setVisible(true);
+        jButtonAnnulla.setVisible(false);
+        jButtonConferma.setVisible(false);
+        jButtonModifica.setVisible(false);
+        jTable1.setVisible(true);
+        jTextFieldDescrizione.setVisible(false);  
+        jButtonRimuovi.setVisible(false);          
     }
 
     @Override
     public void entraStatoRicerca() {
-
+        jTextFieldCodice.setVisible(false);
+        jButtonNuova.setVisible(true);
+        jButtonCerca.setVisible(true);
+        jTextFieldCercaPerCodice.setVisible(true);
+        jButtonAnnulla.setVisible(false);
+        jButtonConferma.setVisible(false);
+        jButtonModifica.setVisible(false);
+        jTable1.setVisible(false);
+        jTextFieldDescrizione.setVisible(false);  
+        jButtonRimuovi.setVisible(false);      
     }
 
     @Override
     public void entraStatoRimuovi() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        jTextFieldCodice.setVisible(true);
+        jButtonNuova.setVisible(false);
+        jButtonCerca.setVisible(false);
+        jTextFieldCercaPerCodice.setVisible(false);
+        jButtonAnnulla.setVisible(true);
+        jButtonConferma.setVisible(true);
+        jButtonModifica.setVisible(false);
+        jTable1.setVisible(false);
+        jTextFieldDescrizione.setVisible(true);  
+        jButtonRimuovi.setVisible(false);
     }
 
     @Override
     public void entraStatoModifica() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        jTextFieldCodice.setVisible(true);
+        jButtonNuova.setVisible(false);
+        jButtonCerca.setVisible(false);
+        jTextFieldCercaPerCodice.setVisible(false);
+        jButtonAnnulla.setVisible(true);
+        jButtonConferma.setVisible(true);
+        jButtonModifica.setVisible(false);
+        jTable1.setVisible(false);
+        jTextFieldDescrizione.setVisible(true);  
+        jButtonRimuovi.setVisible(false);    }
 
     @Override
     public void entraStatoVisualizza() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        jTextFieldCodice.setVisible(true);
+        jButtonNuova.setVisible(true);
+        jButtonCerca.setVisible(true);
+        jTextFieldCercaPerCodice.setVisible(true);
+        jButtonAnnulla.setVisible(false);
+        jButtonConferma.setVisible(false);
+        jButtonModifica.setVisible(true);
+        jTable1.setVisible(true);
+        jTextFieldDescrizione.setVisible(true);  
+        jButtonRimuovi.setVisible(true);   
     }
 
     @Override
     public void entraStatoAggiungi() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        jTextFieldCodice.setVisible(true);
+        jButtonNuova.setVisible(false);
+        jButtonCerca.setVisible(false);
+        jTextFieldCercaPerCodice.setVisible(false);
+        jButtonAnnulla.setVisible(true);
+        jButtonConferma.setVisible(true);
+        jButtonModifica.setVisible(false);
+        jTable1.setVisible(false);
+        jTextFieldDescrizione.setVisible(true);  
+        jButtonRimuovi.setVisible(false);    
     }
 }

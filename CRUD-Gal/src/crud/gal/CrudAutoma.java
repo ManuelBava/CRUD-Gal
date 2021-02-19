@@ -5,10 +5,7 @@
  */
 package crud.gal;
 
-/**
- *
- * @author manue
- */
+
 public class CrudAutoma implements State {
 
     private State stato;
@@ -16,11 +13,15 @@ public class CrudAutoma implements State {
 
     public CrudAutoma(Automabile ui) {
         this.ui = ui;
+        stato = new Initial();
     }
 
     @Override
     public void next(Event e) {
+        System.out.println("Siamo nello stato " + stato);
+        System.out.println("Ricevuto evento " + e);
         stato.next(e);
+        System.out.println("Siamo arrivati nello stato " + stato + "\n");       
     }
 
     public class Initial implements State {
@@ -31,7 +32,7 @@ public class CrudAutoma implements State {
 
         @Override
         public void next(Event e) {
-            if (e instanceof InitialEvent) {
+            if (e instanceof RicercaEvent) {
                 stato = new Ricerca();
             }
         }

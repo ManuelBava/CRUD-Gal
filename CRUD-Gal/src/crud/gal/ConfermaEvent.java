@@ -10,13 +10,5 @@ package crud.gal;
  * @author Federico
  */
 public class ConfermaEvent implements Event{
-
-    private boolean stato_conferma = false;
-
-    public ConfermaEvent() {
-    }
-
-    public boolean isStato_conferma() {
-        return stato_conferma;
-    }
+    
 }

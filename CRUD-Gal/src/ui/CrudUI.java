@@ -9,6 +9,10 @@ import crud.gal.AddEvent;
 import crud.gal.Automabile;
 import crud.gal.CrudAutoma;
 import crud.gal.RicercaEvent;
+import crud.gal.ConfermaEvent;
+import crud.gal.AnnullaEvent;
+import crud.gal.RimuoviEvent;
+import crud.gal.ModificaEvent;
 
 /**
  *
@@ -56,6 +60,11 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
         });
 
         jButtonModifica.setText("Modifica");
+        jButtonModifica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModificaActionPerformed(evt);
+            }
+        });
 
         jButtonAnnulla.setText("Annulla");
         jButtonAnnulla.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +74,11 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
         });
 
         jButtonRimuovi.setText("Rimuovi");
+        jButtonRimuovi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRimuoviActionPerformed(evt);
+            }
+        });
 
         jButtonNuova.setText("Nuova");
         jButtonNuova.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +88,11 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
         });
 
         jButtonConferma.setText("Conferma");
+        jButtonConferma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfermaActionPerformed(evt);
+            }
+        });
 
         jTextFieldCercaPerCodice.setText("Cerca per Codice");
 
@@ -179,8 +198,20 @@ public class CrudUI extends javax.swing.JFrame implements Automabile {
     }//GEN-LAST:event_jButtonCercaActionPerformed
 
     private void jButtonAnnullaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnnullaActionPerformed
-        automa.next(new RicercaEvent());
+        automa.next(new AnnullaEvent());
     }//GEN-LAST:event_jButtonAnnullaActionPerformed
+
+    private void jButtonConfermaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfermaActionPerformed
+        automa.next(new ConfermaEvent());
+    }//GEN-LAST:event_jButtonConfermaActionPerformed
+
+    private void jButtonRimuoviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRimuoviActionPerformed
+        automa.next(new RimuoviEvent());
+    }//GEN-LAST:event_jButtonRimuoviActionPerformed
+
+    private void jButtonModificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificaActionPerformed
+        automa.next(new ModificaEvent());
+    }//GEN-LAST:event_jButtonModificaActionPerformed
 
     /**
      * @param args the command line arguments

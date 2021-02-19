@@ -5,7 +5,6 @@
  */
 package crud.gal;
 
-
 public class CrudAutoma implements State {
 
     private State stato;
@@ -21,7 +20,7 @@ public class CrudAutoma implements State {
         System.out.println("Siamo nello stato " + stato);
         System.out.println("Ricevuto evento " + e);
         stato.next(e);
-        System.out.println("Siamo arrivati nello stato " + stato + "\n");       
+        System.out.println("Siamo arrivati nello stato " + stato + "\n");
     }
 
     public class Initial implements State {
@@ -86,7 +85,10 @@ public class CrudAutoma implements State {
                 stato = new Modifica();
             } else if (e instanceof RicercaEvent) {
                 stato = new Ricerca();
-            }
+            } else if (e instanceof RimuoviEvent) {
+                stato = new Rimuovi();
+            }   else if (e instanceof AddEvent)
+                stato = new Aggiungi();
         }
     }
 

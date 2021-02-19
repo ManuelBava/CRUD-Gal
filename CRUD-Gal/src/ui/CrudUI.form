@@ -124,6 +124,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Modifica"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonModificaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAnnulla">
       <Properties>
@@ -137,6 +140,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Rimuovi"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRimuoviActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonNuova">
       <Properties>
@@ -150,6 +156,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Conferma"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonConfermaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldCercaPerCodice">
       <Properties>

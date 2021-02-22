@@ -12,7 +12,7 @@ public class CrudAutoma implements State {
 
     public CrudAutoma(Automabile ui) {
         this.ui = ui;
-        stato = new Initial();
+        stato = new Ricerca();
     }
 
     @Override
@@ -21,20 +21,6 @@ public class CrudAutoma implements State {
         System.out.println("Ricevuto evento " + e);
         stato.next(e);
         System.out.println("Siamo arrivati nello stato " + stato + "\n");
-    }
-
-    public class Initial implements State {
-
-        public Initial() {
-            ui.statoIniziale();
-        }
-
-        @Override
-        public void next(Event e) {
-            if (e instanceof RicercaEvent) {
-                stato = new Ricerca();
-            }
-        }
     }
 
     public class Ricerca implements State {
